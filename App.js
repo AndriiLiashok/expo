@@ -7,15 +7,20 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import PostComponent from "./src/components/PostComponent";
 import UserDetailsComponent from './src/components/UserDetailsComponent'
-let StackNavigation = createStackNavigator();
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import PostDrover from "./src/components/PostDrover";
+let BottomTagNavigation = createBottomTabNavigator();
 export default function App() {
     return (
        <NavigationContainer>
-           <StackNavigation.Navigator>
-               <StackNavigation.Screen name={'Users'} component={UsersComponent}/>
-               <StackNavigation.Screen name={'Post'} component={PostComponent}/>
-               <StackNavigation.Screen name={'UserDetails'} component={UserDetailsComponent}/>
-           </StackNavigation.Navigator>
+            <BottomTagNavigation.Navigator tabBarOptions={{tabStyle:{
+                justifyContent:"center",
+                    alignItems: "center",
+
+                }}}>
+                <BottomTagNavigation.Screen name={'users'} component={UsersComponent}/>
+                <BottomTagNavigation.Screen name={'posts'} component={PostDrover}/>
+            </BottomTagNavigation.Navigator>
        </NavigationContainer>
     );
 }
